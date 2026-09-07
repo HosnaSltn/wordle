@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Wordle — CS Edition</title>
+    <link rel="icon" href="wordle-favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Small safety: if external CSS fails, basic styling still applies */
+    </style>
+  </head>
+  <body>
+    <button class="help-btn" id="helpBtn" aria-label="How to play">?</button>
+
+    <!-- Help Modal -->
+    <div class="modal-overlay" id="helpModal">
+      <div class="modal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <h2>How To Play</h2>
+        <p>Guess the CS-related word in 6 tries.</p>
+        <p>Each guess must be a valid 5-letter word. Press Enter to submit.</p>
+        <p>
+          After each guess, the color of the tiles will change to show how close
+          your guess was:
+        </p>
+        <div class="example">
+          <div class="tile correct">A</div>
+          <div class="tile">R</div>
+          <div class="tile">R</div>
+          <div class="tile">A</div>
+          <div class="tile">Y</div>
+        </div>
+        <p>
+          <strong>Green:</strong> The letter is in the word and in the correct
+          spot.
+        </p>
+        <div class="example">
+          <div class="tile">S</div>
+          <div class="tile present">T</div>
+          <div class="tile">A</div>
+          <div class="tile">C</div>
+          <div class="tile">K</div>
+        </div>
+        <p>
+          <strong>Yellow:</strong> The letter is in the word but in the wrong
+          spot.
+        </p>
+        <div class="example">
+          <div class="tile">Q</div>
+          <div class="tile">U</div>
+          <div class="tile">E</div>
+          <div class="tile">R</div>
+          <div class="tile absent">Y</div>
+        </div>
+        <p><strong>Gray:</strong> The letter is not in the word.</p>
+
+        <hr
+          style="border: none; border-top: 1px solid #3a3a3c; margin: 20px 0"
+        />
+
+        <div class="course-info">
+          <p
+            style="
+              font-style: italic;
+              text-align: center;
+              color: #b59f3b;
+              margin-bottom: 8px;
+            "
+          >
+            📚 About This Project
+          </p>
+          <p style="text-align: center; font-size: 13px; line-height: 1.6">
+            This project was created as part of the
+            <strong>Final Project</strong> for the
+            <em>Foreign Language Course</em> — Fall 2025 at University of
+            Isfahan<br />
+            Under the guidance of <strong>Dr. A. Ahmadi</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <h1>Wordle — CS Edition</h1>
+      <p class="subtitle">Guess the 5-letter CS word. 6 tries.</p>
+
+      <div id="game">
+        <div id="board" aria-live="polite"></div>
+        <div id="keyboard"></div>
+      </div>
+
+      <div class="controls">
+        <button id="newGame">New Game</button>
+      </div>
+
+      <div id="message" role="status" aria-live="polite"></div>
+    </main>
+
+    <footer class="footer">Made with ❤️ by Davoud and Hosna</footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Help modal functionality
+      const helpBtn = document.getElementById("helpBtn");
+      const helpModal = document.getElementById("helpModal");
+      const modalClose = document.getElementById("modalClose");
+
+      helpBtn.addEventListener("click", () =>
+        helpModal.classList.add("active"),
+      );
+      modalClose.addEventListener("click", () =>
+        helpModal.classList.remove("active"),
+      );
+      helpModal.addEventListener("click", (e) => {
+        if (e.target === helpModal) helpModal.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
