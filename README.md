@@ -1,58 +1,29 @@
-<h1 align="center">Wordle — CS Edition</h1>
+# Wordle — CS Edition
 
-<p align="center"><strong>Five letters. Six tries. A vocabulary list drawn from the course.</strong></p>
+A five-letter word puzzle with vocabulary from an English for Academic Purposes course. Built with HTML, CSS, and vanilla JavaScript.
 
-<p align="center">
-  <a href="#how-to-play">How to play</a> &nbsp;·&nbsp;
-  <a href="#run-locally">Run locally</a> &nbsp;·&nbsp;
-  <a href="#project-files">Project files</a>
-</p>
-
-<p align="center">
-  <img src="wordle-gameplay.jpg" width="820" alt="A completed Wordle round with SLATE, ROUND, CHIMP, and the winning guess ELUDE. Green, yellow, and gray tiles show the feedback.">
-</p>
-
-A browser-based word puzzle built with vanilla HTML, CSS, and JavaScript. This edition draws its answer pool from vocabulary collected for an English for Academic Purposes course.
+![A solved round showing SLATE, ROUND, CHIMP, and the winning guess ELUDE](wordle-gameplay.jpg)
 
 ## How to play
 
-1. Type a five-letter guess with your keyboard or the on-screen keys. Press **Enter** to submit it.
-2. Use the feedback on the tiles and keyboard to narrow down the answer. You have six guesses.
-3. Select **New Game** at any time, or press **Enter** after a round ends, to start a new round.
+Find the hidden word in six guesses. The tiles and keyboard show what each guess tells you.
 
-| Tile | Meaning |
-| --- | --- |
-| 🟩 Green | The letter is in the correct position. |
-| 🟨 Yellow | The letter appears elsewhere in the answer. |
-| ⬛ Gray | The letter has no remaining match in the answer. |
+- 🟩 **Green** — correct letter and position
+- 🟨 **Yellow** — correct letter in a different position
+- ⬛ **Gray** — no remaining match for that letter
 
-<details>
-<summary>See the in-game help panel</summary>
-<br>
-<p align="center">
-  <img src="wordle-help.jpg" width="820" alt="The game's How To Play panel with examples of green, yellow, and gray feedback tiles.">
-</p>
-</details>
+Use your keyboard or the on-screen keys. Select **New Game** for a fresh round, or press **Enter** once a round ends.
 
 ## Run locally
 
-Clone the repository, then open `index.html` in your browser. The game runs directly in the browser without a build step or dependencies.
+Open [`index.html`](index.html) in your browser. If you prefer a local server, run this from the repository folder and open [http://localhost:8000](http://localhost:8000).
 
 ```bash
-git clone https://github.com/HosnaSltn/wordle.git
-cd wordle
+python -m http.server 8000
 ```
 
-## Project files
+## Change the words
 
-| File | What it contains |
-| --- | --- |
-| [`index.html`](index.html) | Game layout and the in-game help panel |
-| [`style.css`](style.css) | Board, keyboard, and tile styling |
-| [`script.js`](script.js) | Answer list, game state, keyboard input, and scoring |
+Edit the `WORDS` array in [`script.js`](script.js). The game uses entries that are exactly five characters long and converts them to lowercase.
 
-The `WORDS` array in [`script.js`](script.js) holds the course vocabulary. The game builds its answer pool from entries that are exactly five characters long and converts them to lowercase.
-
-## Credits
-
-Created by **Davoud and Hosna** for the Fall 2025 Foreign Language course at the **University of Isfahan**, under the guidance of **Dr. A. Ahmadi**.
+Made by **Davoud and Hosna** for a Fall 2025 course project at the University of Isfahan.
